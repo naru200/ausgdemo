@@ -1,5 +1,22 @@
-import { AppRegistry } from 'react-native';
-import App from './App';
-import { name as appName } from './app.json';
+import { Navigation } from 'react-native-navigation';
 
-AppRegistry.registerComponent(appName, () => App);
+// Screens
+import Login from './src/Login';
+
+Navigation.registerComponent('LoginScreen', () => Login);
+Navigation.events().registerAppLaunchedListener(() => {
+  Navigation.setRoot({
+    root: {
+      // Stack Navigator
+      stack: {
+        children: [
+          {
+            component: {
+              name: 'LoginScreen',
+            },
+          },
+        ],
+      },
+    },
+  });
+});
