@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   View,
@@ -8,7 +8,29 @@ import {
   TextInput,
 } from 'react-native';
 
+// Amplify
+import { DataStore } from '@aws-amplify/datastore';
+import { Todo } from './models';
+import { Navigation } from 'react-native-navigation';
+
 const CreateTodo = () => {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleSubmit = async (props: any) => {
+    const nowDate = new Date();
+    const timestamp = `${nowDate.getHours()} : ${nowDate.getMinutes()}`;
+
+    await DataStore.save(
+      new Todo({
+        title: inputValue,
+        timestamp: timestamp,
+        Checkboxes: [],
+      }),
+    );
+
+    await Navigation.pop(props.componentId);
+  };
+
   return (
     <SafeAreaView>
       <View style={styles.container}>
@@ -17,10 +39,11 @@ const CreateTodo = () => {
           <TextInput
             style={styles.input}
             placeholder="할 일 제목을 입력해 주세요."
+            onChangeText={v => setInputValue(v)}
           />
         </View>
       </View>
-      <Pressable style={styles.createButton} onPress={() => {}}>
+      <Pressable style={styles.createButton} onPress={handleSubmit}>
         <Text style={styles.buttonText}>생성하기</Text>
       </Pressable>
     </SafeAreaView>
