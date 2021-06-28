@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   SafeAreaView,
   View,
@@ -11,14 +11,18 @@ import TodoItem from './TodoItem';
 import { Navigation } from 'react-native-navigation';
 
 const Main = (props: any) => {
-  const arr = [1, 2, 3];
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // TODO
+  }, []);
 
   return (
     <SafeAreaView>
       <ScrollView style={{ height: '100%' }}>
         <View style={styles.container}>
-          {arr.map(item => (
-            <TodoItem key={item} />
+          {data.map(item => (
+            <TodoItem />
           ))}
         </View>
       </ScrollView>
@@ -43,6 +47,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 20,
     paddingHorizontal: 16,
+    paddingBottom: 40,
   },
   createButton: {
     position: 'absolute',
