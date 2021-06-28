@@ -1,4 +1,5 @@
 import React from 'react';
+import { setRootToMain } from './navigation';
 import {
   SafeAreaView,
   View,
@@ -16,7 +17,7 @@ const Login = () => {
       <View style={styles.container}>
         <Image source={logo} style={styles.logo} />
         <Text style={styles.header}>AWS Cognito 데모 앱</Text>
-        <Pressable style={styles.loginButton}>
+        <Pressable style={styles.loginButton} onPress={setRootToMain}>
           <Text style={styles.buttonText}>구글 로그인</Text>
         </Pressable>
       </View>
