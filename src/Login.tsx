@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
 Login.options = {
   topBar: {
     title: {
-      text: '로그인 화면',
+      text: '시작 화면',
     },
   },
 };

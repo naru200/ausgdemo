@@ -1,11 +1,19 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
+
+import checkbox from './checkbox.png';
 
 const TodoItem = ({ title, timestamp }: any) => {
   return (
     <View style={styles.todoContainer}>
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.timestamp}>{timestamp}</Text>
+      <Image
+        source={checkbox}
+        style={{ width: 24, height: 24, marginRight: 12 }}
+      />
+      <View>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.timestamp}>{timestamp}</Text>
+      </View>
     </View>
   );
 };
@@ -13,6 +21,8 @@ const TodoItem = ({ title, timestamp }: any) => {
 const styles = StyleSheet.create({
   todoContainer: {
     width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 12,
     padding: 12,
     borderWidth: 1,

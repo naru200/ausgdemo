@@ -21,9 +21,11 @@ const Main = (props: any) => {
     <SafeAreaView>
       <ScrollView style={{ height: '100%' }}>
         <View style={styles.container}>
-          {data.map(item => (
-            <TodoItem />
-          ))}
+          {data.length > 0 ? (
+            data.map(item => <TodoItem />)
+          ) : (
+            <Text style={{ color: 'gray' }}>아이템이 존재하지 않습니다.</Text>
+          )}
         </View>
       </ScrollView>
       <Pressable
