@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   SafeAreaView,
   View,
@@ -10,15 +10,30 @@ import {
 import TodoItem from './TodoItem';
 import { Navigation } from 'react-native-navigation';
 
+// Amplify
+import { DataStore } from '@aws-amplify/datastore';
+import { Todo } from './models';
+
 const Main = (props: any) => {
-  const arr = [1, 2, 3];
+  const [data, setData] = useState<Todo[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const models = await DataStore.query(Todo);
+      setData(models);
+    })();
+  }, []);
 
   return (
     <SafeAreaView>
       <ScrollView style={{ height: '100%' }}>
         <View style={styles.container}>
-          {arr.map(item => (
-            <TodoItem key={item} />
+          {data.map(item => (
+            <TodoItem
+              key={item.id}
+              title={item.title}
+              timestamp={item.timestamp}
+            />
           ))}
         </View>
       </ScrollView>
@@ -43,6 +58,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 20,
     paddingHorizontal: 16,
+    paddingBottom: 40,
   },
   createButton: {
     position: 'absolute',

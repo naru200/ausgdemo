@@ -1,0 +1,13 @@
+type Checkbox @model @auth(rules: [{allow: public}]) @key(name: "byTodo", fields: ["todoID"]) {
+  id: ID!
+  body: String
+  todoID: ID
+}
+
+type Todo @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  title: String
+  Checkboxes: [Checkbox] @connection(keyName: "byTodo", fields: ["id"])
+  timestamp: String
+}
+ 

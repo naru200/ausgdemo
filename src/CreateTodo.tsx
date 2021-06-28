@@ -13,12 +13,12 @@ import { DataStore } from '@aws-amplify/datastore';
 import { Todo } from './models';
 import { Navigation } from 'react-native-navigation';
 
-const CreateTodo = () => {
+const CreateTodo = (props: any) => {
   const [inputValue, setInputValue] = useState('');
 
-  const handleSubmit = async (props: any) => {
+  const handleSubmit = async () => {
     const nowDate = new Date();
-    const timestamp = `${nowDate.getHours()} : ${nowDate.getMinutes()}`;
+    const timestamp = `${nowDate.getHours()}:${nowDate.getMinutes()}`;
 
     await DataStore.save(
       new Todo({
