@@ -85,8 +85,20 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
+<<<<<<< HEAD
                 "title": {
                     "name": "title",
+=======
+                "titl": {
+                    "name": "titl",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "timestamp": {
+                    "name": "timestamp",
+>>>>>>> demo
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -106,6 +118,7 @@ export const schema = {
                         "associatedWith": "todoID"
                     }
                 },
+<<<<<<< HEAD
                 "timestamp": {
                     "name": "timestamp",
                     "isArray": false,
@@ -113,6 +126,8 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+=======
+>>>>>>> demo
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -158,5 +173,9 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
+<<<<<<< HEAD
     "version": "7f38c8d7e0ddc437f339d4de6812711b"
+=======
+    "version": "98276268595d1b114c59cdd50493c026"
+>>>>>>> demo
 };

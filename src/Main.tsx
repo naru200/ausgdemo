@@ -28,6 +28,7 @@ const Main = (props: any) => {
     <SafeAreaView>
       <ScrollView style={{ height: '100%' }}>
         <View style={styles.container}>
+<<<<<<< HEAD
           {data.map(item => (
             <TodoItem
               key={item.id}
@@ -35,6 +36,15 @@ const Main = (props: any) => {
               timestamp={item.timestamp}
             />
           ))}
+=======
+          {data.length > 0 ? (
+            data.map(item => (
+              <TodoItem title={item.titl} timestamp={item.timestamp} />
+            ))
+          ) : (
+            <Text style={{ color: 'gray' }}>아이템이 존재하지 않습니다.</Text>
+          )}
+>>>>>>> demo
         </View>
       </ScrollView>
       <Pressable

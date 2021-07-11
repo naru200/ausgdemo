@@ -9,7 +9,7 @@ import {
   Image,
 } from 'react-native';
 
-import logo from './ausg-logo.png';
+import logo from './assets/ausg-logo.png';
 
 const Login = () => {
   return (
@@ -18,7 +18,7 @@ const Login = () => {
         <Image source={logo} style={styles.logo} />
         <Text style={styles.header}>AWS Cognito 데모 앱</Text>
         <Pressable style={styles.loginButton} onPress={setRootToMain}>
-          <Text style={styles.buttonText}>구글 로그인</Text>
+          <Text style={styles.buttonText}>시작하기</Text>
         </Pressable>
       </View>
     </SafeAreaView>
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
 Login.options = {
   topBar: {
     title: {
-      text: '로그인 화면',
+      text: '시작 화면',
     },
   },
 };

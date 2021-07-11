@@ -7,7 +7,30 @@ import {
   Text,
   TextInput,
 } from 'react-native';
+import { Navigation } from 'react-native-navigation';
 
+import { DataStore } from '@aws-amplify/datastore';
+import { Todo } from './models';
+
+const CreateTodo = (props: any) => {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleSubmit = async () => {
+    const nowDate = new Date();
+    const timestamp = `${nowDate.getHours()}:${nowDate.getMinutes()}`;
+
+    await DataStore.save(
+      new Todo({
+        titl: inputValue,
+        timestamp: timestamp,
+        Checkboxes: [],
+      }),
+    );
+
+    await Navigation.pop(props.componentId);
+  };
+
+<<<<<<< HEAD
 // Amplify
 import { DataStore } from '@aws-amplify/datastore';
 import { Todo } from './models';
@@ -31,6 +54,8 @@ const CreateTodo = (props: any) => {
     await Navigation.pop(props.componentId);
   };
 
+=======
+>>>>>>> demo
   return (
     <SafeAreaView>
       <View style={styles.container}>

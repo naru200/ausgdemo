@@ -2,7 +2,11 @@
   "providers": [
     "awscloudformation"
   ],
+<<<<<<< HEAD
   "projectName": "ausgpredemo",
+=======
+  "projectName": "ausglivedemo",
+>>>>>>> demo
   "version": "3.1",
   "frontend": "javascript",
   "javascript": {

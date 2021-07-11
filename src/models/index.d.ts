@@ -16,9 +16,15 @@ export declare class Checkbox {
 
 export declare class Todo {
   readonly id: string;
+<<<<<<< HEAD
   readonly title?: string;
   readonly Checkboxes?: (Checkbox | null)[];
   readonly timestamp?: string;
+=======
+  readonly titl?: string;
+  readonly timestamp?: string;
+  readonly Checkboxes?: (Checkbox | null)[];
+>>>>>>> demo
   readonly createdAt?: string;
   readonly updatedAt?: string;
   constructor(init: ModelInit<Todo>);

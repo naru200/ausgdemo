@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "auth": {
     "ausgpredemo03269b7e": {
       "service": "Cognito",
@@ -9,6 +10,10 @@
   },
   "api": {
     "ausgpredemo": {
+=======
+  "api": {
+    "ausglivedemo": {
+>>>>>>> demo
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {
