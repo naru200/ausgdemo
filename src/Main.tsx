@@ -10,11 +10,18 @@ import {
 import TodoItem from './TodoItem';
 import { Navigation } from 'react-native-navigation';
 
+// Amplify
+import { DataStore } from '@aws-amplify/datastore';
+import { Todo } from './models';
+
 const Main = (props: any) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Todo[]>([]);
 
   useEffect(() => {
-    // TODO
+    (async () => {
+      const models = await DataStore.query(Todo);
+      setData(models);
+    })();
   }, []);
 
   return (
@@ -22,7 +29,9 @@ const Main = (props: any) => {
       <ScrollView style={{ height: '100%' }}>
         <View style={styles.container}>
           {data.length > 0 ? (
-            data.map(item => <TodoItem />)
+            data.map(item => (
+              <TodoItem title={item.titl} timestamp={item.timestamp} />
+            ))
           ) : (
             <Text style={{ color: 'gray' }}>아이템이 존재하지 않습니다.</Text>
           )}

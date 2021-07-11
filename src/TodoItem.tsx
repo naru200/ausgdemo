@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 
-import checkbox from './checkbox.png';
+import checkbox from './assets/checkbox.png';
 
 const TodoItem = ({ title, timestamp }: any) => {
   return (

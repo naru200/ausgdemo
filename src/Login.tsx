@@ -9,7 +9,7 @@ import {
   Image,
 } from 'react-native';
 
-import logo from './ausg-logo.png';
+import logo from './assets/ausg-logo.png';
 
 const Login = () => {
   return (
